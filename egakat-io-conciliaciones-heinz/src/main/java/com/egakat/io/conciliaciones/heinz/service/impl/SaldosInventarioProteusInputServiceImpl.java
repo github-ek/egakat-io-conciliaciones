@@ -1,22 +1,31 @@
 package com.egakat.io.conciliaciones.heinz.service.impl;
 
+
+
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import com.egakat.integration.core.files.components.decorators.Decorator;
+import com.egakat.integration.core.files.components.readers.ExcelWorkSheetReader;
+import com.egakat.integration.core.files.components.readers.Reader;
 import com.egakat.integration.core.files.service.impl.excel.ArchivoExcelInputServiceImpl;
 import com.egakat.io.conciliaciones.components.decorators.SaldoInventarioMapEntidadDecorator;
 import com.egakat.io.conciliaciones.domain.SaldoInventario;
-import com.egakat.io.conciliaciones.heinz.components.decorators.SaldosInventarioCamposDecorator;
-import com.egakat.io.conciliaciones.heinz.components.decorators.SaldosInventarioCorregirLineasDecorator;
-import com.egakat.io.conciliaciones.heinz.components.decorators.SaldosInventarioFiltroDecorator;
+import com.egakat.io.conciliaciones.heinz.components.decorators.SaldosInventarioCamposProteusDecorator;
+import com.egakat.io.conciliaciones.heinz.components.decorators.SaldosInventarioProteusFiltroDecorator;
 import com.egakat.io.conciliaciones.heinz.service.api.SaldosInventarioInputService;
 import com.egakat.io.conciliaciones.repository.SaldoInventarioRepository;
 
-public class SaldosInventarioInputServiceImpl extends ArchivoExcelInputServiceImpl<SaldoInventario> implements SaldosInventarioInputService{
+import lombok.val;
 
-	private static final String TIPO_ARCHIVO_CODIGO = "HEINZ_SALDOS_INVENTARIO";
+@Service
+@Transactional(readOnly = true)
+public class SaldosInventarioProteusInputServiceImpl extends ArchivoExcelInputServiceImpl<SaldoInventario> implements SaldosInventarioInputService{
+
+	private static final String TIPO_ARCHIVO_CODIGO = "HEINZ_SALDOS_INVENTARIO_PROTEUS";
 	
-	private static final String WORKSHEET_NAME = "1";
+	private static final String WORKSHEET_NAME = "0";
 
 	@Autowired
 	private SaldoInventarioRepository repository;
@@ -30,6 +39,13 @@ public class SaldosInventarioInputServiceImpl extends ArchivoExcelInputServiceIm
 	protected String getWorkSheetName() {
 		return WORKSHEET_NAME;
 	}
+	
+	@Override
+	protected Reader getReader() {
+		val reader = (ExcelWorkSheetReader) super.getReader();
+		reader.setRowOffset(1);
+		return reader;
+	}
 
 	@Override
 	protected SaldoInventarioRepository getRepository() {
@@ -38,18 +54,12 @@ public class SaldosInventarioInputServiceImpl extends ArchivoExcelInputServiceIm
 	
 	@Override
 	protected Decorator<SaldoInventario, Long> getFiltrarRegistrosDecorator(Decorator<SaldoInventario, Long> inner) {
-		return new SaldosInventarioFiltroDecorator(inner);
+		return new SaldosInventarioProteusFiltroDecorator(inner);
 	}
 
 	@Override
 	protected Decorator<SaldoInventario, Long> getEnriquecerCamposDecorator(Decorator<SaldoInventario, Long> inner) {
-		return new SaldosInventarioCamposDecorator(inner);
-	}
-
-	
-	@Override
-	protected Decorator<SaldoInventario, Long> getLimpiarLineasDecorator(Decorator<SaldoInventario, Long> inner) {
-		return new SaldosInventarioCorregirLineasDecorator(inner);
+		return new SaldosInventarioCamposProteusDecorator(inner);
 	}
 
 	@Override

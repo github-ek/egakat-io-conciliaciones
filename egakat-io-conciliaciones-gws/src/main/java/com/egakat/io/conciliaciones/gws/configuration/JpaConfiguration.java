@@ -6,6 +6,7 @@ import javax.sql.DataSource;
 import org.springframework.boot.context.properties.ConfigurationProperties;
 import org.springframework.boot.jdbc.DataSourceBuilder;
 import org.springframework.boot.orm.jpa.EntityManagerFactoryBuilder;
+import org.springframework.context.annotation.AdviceMode;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.Primary;
@@ -20,7 +21,7 @@ import com.zaxxer.hikari.HikariDataSource;
 import lombok.val;
 
 @Configuration
-@EnableTransactionManagement
+@EnableTransactionManagement(mode = AdviceMode.ASPECTJ)
 @EnableJpaRepositories(basePackages = JpaConfiguration.PACKAGES_TO_SCAN_FOR_REPOSITORIES)
 public class JpaConfiguration {
 
@@ -52,5 +53,5 @@ public class JpaConfiguration {
 	public PlatformTransactionManager transactionManager(EntityManagerFactory entityManagerFactory) {
 		val result = new JpaTransactionManager(entityManagerFactory);
 		return result;
-	}
+	}	
 }

@@ -27,6 +27,7 @@ public class Task {
 		// @formatter:on
 
 		services.parallelStream().forEach(service -> {
+			service.cacheEvict();
 			val archivos = service.getArchivosPendientes();
 			archivos.stream().forEach(archivoId -> {
 				try {

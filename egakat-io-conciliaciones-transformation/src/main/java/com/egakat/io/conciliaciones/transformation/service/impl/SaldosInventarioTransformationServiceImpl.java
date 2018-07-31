@@ -30,7 +30,7 @@ public class SaldosInventarioTransformationServiceImpl extends TransformationSer
 	private LookUpService lookUpService;
 
 	@Autowired
-	private ConciliacionesLookUpService conciliacioneslookUpService;
+	private ConciliacionesLookUpService conciliacionesLookUpService;
 
 	@Override
 	protected SaldoInventarioRepository getRepository() {
@@ -41,10 +41,16 @@ public class SaldosInventarioTransformationServiceImpl extends TransformationSer
 		return lookUpService;
 	}
 	
-	public ConciliacionesLookUpService getConciliacioneslookUpService() {
-		return conciliacioneslookUpService;
+	public ConciliacionesLookUpService getConciliacionesLookUpService() {
+		return conciliacionesLookUpService;
 	}
 
+	@Override
+	public void cacheEvict() {
+		getLookUpService().cacheEvict();
+		getConciliacionesLookUpService().cacheEvict();	
+	}
+	
 	public SaldosInventarioTransformationServiceImpl() {
 		super();
 	}
@@ -116,7 +122,7 @@ public class SaldosInventarioTransformationServiceImpl extends TransformationSer
 
 	private void translateEstadoConciliacion(SaldoInventario registro, String value) {
 		registro.setIdEstadoConciliacion(null);
-		val id = getConciliacioneslookUpService().findEstadoConciliacionIdByEstadoConciliacionCodigo(value);
+		val id = getConciliacionesLookUpService().findEstadoConciliacionIdByEstadoConciliacionCodigo(value);
 		registro.setIdEstadoConciliacion(id);
 	}
 }

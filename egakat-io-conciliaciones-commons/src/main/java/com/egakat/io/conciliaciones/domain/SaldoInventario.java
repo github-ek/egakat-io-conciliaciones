@@ -98,32 +98,6 @@ public class SaldoInventario extends Registro {
 		return String.valueOf(getNumeroLinea());
 	}
 
-	@Builder
-	public SaldoInventario(Long id, int version, LocalDateTime FechaCreacion, String createdBy,
-			LocalDateTime FechaModificacion, String modifiedBy, Long idArchivo, EstadoRegistroType estado, int numeroLinea,
-			String clienteCodigo, LocalDate fecha, LocalDateTime fechaCorte, String productoCodigoAlterno,
-			String bodegaCodigoAlterno, String estadoConciliacionCodigoAlterno, String unidadMedidaCodigoAlterno,
-			Integer unidadesPorEmpaque, BigDecimal cantidad, Integer valorUnitario, Long idCliente, Long idProducto,
-			Long idBodega, Long idEstadoConciliacion, Long idUnidadMedida) {
-		super(id, version, FechaCreacion, createdBy, FechaModificacion, modifiedBy, idArchivo, estado, numeroLinea);
-		this.clienteCodigo = clienteCodigo;
-		this.fecha = fecha;
-		this.fechaCorte = fechaCorte;
-		this.productoCodigoAlterno = productoCodigoAlterno;
-		this.bodegaCodigoAlterno = bodegaCodigoAlterno;
-		this.estadoConciliacionCodigoAlterno = estadoConciliacionCodigoAlterno;
-		this.unidadMedidaCodigoAlterno = unidadMedidaCodigoAlterno;
-		this.unidadesPorEmpaque = unidadesPorEmpaque;
-		this.cantidad = cantidad;
-		this.valorUnitario = valorUnitario;
-		this.idCliente = idCliente;
-		this.idProducto = idProducto;
-		this.idBodega = idBodega;
-		this.idEstadoConciliacion = idEstadoConciliacion;
-		this.idUnidadMedida = idUnidadMedida;
-	}
-	
-
 	@Override
 	public Object getObjectValueFromProperty(String property) {
 		switch (property) {
@@ -198,6 +172,30 @@ public class SaldoInventario extends Registro {
 			return null;
 		}
 	}
-	
-	
+
+	@Builder
+	public SaldoInventario(Long id, int version, LocalDateTime fechaCreacion, String creadoPor,
+			LocalDateTime fechaModificacion, String modificadoPor, Long idArchivo, @NotNull EstadoRegistroType estado,
+			int numeroLinea, @NotNull String clienteCodigo, @NotNull LocalDate fecha, @NotNull LocalDateTime fechaCorte,
+			@NotNull String productoCodigoAlterno, @NotNull String bodegaCodigoAlterno,
+			@NotNull String estadoConciliacionCodigoAlterno, @NotNull String unidadMedidaCodigoAlterno,
+			Integer unidadesPorEmpaque, @NotNull BigDecimal cantidad, Integer valorUnitario, Long idCliente,
+			Long idProducto, Long idBodega, Long idEstadoConciliacion, Long idUnidadMedida) {
+		super(id, version, fechaCreacion, creadoPor, fechaModificacion, modificadoPor, idArchivo, estado, numeroLinea);
+		this.clienteCodigo = clienteCodigo;
+		this.fecha = fecha;
+		this.fechaCorte = fechaCorte;
+		this.productoCodigoAlterno = productoCodigoAlterno;
+		this.bodegaCodigoAlterno = bodegaCodigoAlterno;
+		this.estadoConciliacionCodigoAlterno = estadoConciliacionCodigoAlterno;
+		this.unidadMedidaCodigoAlterno = unidadMedidaCodigoAlterno;
+		this.unidadesPorEmpaque = unidadesPorEmpaque;
+		this.cantidad = cantidad;
+		this.valorUnitario = valorUnitario;
+		this.idCliente = idCliente;
+		this.idProducto = idProducto;
+		this.idBodega = idBodega;
+		this.idEstadoConciliacion = idEstadoConciliacion;
+		this.idUnidadMedida = idUnidadMedida;
+	}
 }

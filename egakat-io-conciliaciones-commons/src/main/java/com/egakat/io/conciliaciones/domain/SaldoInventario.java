@@ -29,8 +29,6 @@ import lombok.ToString;
 @NoArgsConstructor
 public class SaldoInventario extends Registro {
 
-	private static final long serialVersionUID = 1L;
-
 	public static final String CLIENTE_CODIGO = "CLIENTE_CODIGO";
 	public static final String FECHA = "FECHA";
 	public static final String FECHA_CORTE = "FECHA_CORTE";

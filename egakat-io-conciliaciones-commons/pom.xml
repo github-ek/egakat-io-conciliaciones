@@ -43,10 +43,4 @@
 		</plugins>
 	</build>
 	
-	<dependencies>
-		<dependency>
-			<groupId>com.egakat</groupId>
-			<artifactId>egakat-integration-core-files</artifactId>
-		</dependency>
-	</dependencies>
 </project>

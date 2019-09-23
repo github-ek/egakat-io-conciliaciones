@@ -75,5 +75,6 @@
 		<module>egakat-io-conciliaciones-heinz</module>
 		<module>egakat-io-conciliaciones-transformation</module>
 		<module>egakat-io-conciliaciones-colimpel</module>
+		<module>egakat-io-conciliaciones-clientes-ibw</module>
 	</modules>
 </project>

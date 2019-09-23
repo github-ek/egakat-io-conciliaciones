@@ -4,9 +4,9 @@ import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
 
+import com.egakat.integration.commons.archivos.dto.EtlRequestDto;
+import com.egakat.integration.commons.archivos.dto.RegistroDto;
 import com.egakat.integration.core.files.components.decorators.Decorator;
-import com.egakat.integration.files.dto.EtlRequestDto;
-import com.egakat.integration.files.dto.RegistroDto;
 import com.egakat.io.conciliaciones.domain.SaldoInventario;
 
 import lombok.val;

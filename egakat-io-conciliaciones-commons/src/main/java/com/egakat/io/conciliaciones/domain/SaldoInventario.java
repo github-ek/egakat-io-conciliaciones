@@ -11,10 +11,8 @@ import javax.validation.constraints.NotNull;
 
 import org.hibernate.annotations.DynamicUpdate;
 
-import com.egakat.integration.files.domain.Registro;
-import com.egakat.integration.files.enums.EstadoRegistroType;
+import com.egakat.integration.commons.archivos.domain.Registro;
 
-import lombok.Builder;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
@@ -171,31 +169,5 @@ public class SaldoInventario extends Registro {
 		default:
 			return null;
 		}
-	}
-
-	@Builder
-	public SaldoInventario(Long id, int version, LocalDateTime fechaCreacion, String creadoPor,
-			LocalDateTime fechaModificacion, String modificadoPor, Long idArchivo, @NotNull EstadoRegistroType estado,
-			int numeroLinea, @NotNull String clienteCodigo, @NotNull LocalDate fecha, @NotNull LocalDateTime fechaCorte,
-			@NotNull String productoCodigoAlterno, @NotNull String bodegaCodigoAlterno,
-			@NotNull String estadoConciliacionCodigoAlterno, @NotNull String unidadMedidaCodigoAlterno,
-			Integer unidadesPorEmpaque, @NotNull BigDecimal cantidad, Integer valorUnitario, Long idCliente,
-			Long idProducto, Long idBodega, Long idEstadoConciliacion, Long idUnidadMedida) {
-		super(id, version, fechaCreacion, creadoPor, fechaModificacion, modificadoPor, idArchivo, estado, numeroLinea);
-		this.clienteCodigo = clienteCodigo;
-		this.fecha = fecha;
-		this.fechaCorte = fechaCorte;
-		this.productoCodigoAlterno = productoCodigoAlterno;
-		this.bodegaCodigoAlterno = bodegaCodigoAlterno;
-		this.estadoConciliacionCodigoAlterno = estadoConciliacionCodigoAlterno;
-		this.unidadMedidaCodigoAlterno = unidadMedidaCodigoAlterno;
-		this.unidadesPorEmpaque = unidadesPorEmpaque;
-		this.cantidad = cantidad;
-		this.valorUnitario = valorUnitario;
-		this.idCliente = idCliente;
-		this.idProducto = idProducto;
-		this.idBodega = idBodega;
-		this.idEstadoConciliacion = idEstadoConciliacion;
-		this.idUnidadMedida = idUnidadMedida;
 	}
 }

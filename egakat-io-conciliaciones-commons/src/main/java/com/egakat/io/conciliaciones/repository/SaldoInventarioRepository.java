@@ -5,8 +5,8 @@ import java.util.List;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.query.Param;
 
-import com.egakat.integration.files.enums.EstadoRegistroType;
-import com.egakat.integration.files.repository.RegistroRepository;
+import com.egakat.integration.commons.archivos.enums.EstadoRegistroType;
+import com.egakat.integration.commons.archivos.repository.RegistroRepository;
 import com.egakat.io.conciliaciones.domain.SaldoInventario;
 
 public interface SaldoInventarioRepository extends RegistroRepository<SaldoInventario> {

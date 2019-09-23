@@ -3,7 +3,7 @@ package com.egakat.io.conciliaciones.heinz.service.impl;
 import org.springframework.beans.factory.annotation.Autowired;
 
 import com.egakat.integration.core.files.components.decorators.Decorator;
-import com.egakat.integration.core.files.service.impl.excel.ArchivoExcelInputServiceImpl;
+import com.egakat.integration.core.files.service.impl.ArchivoExcelInputServiceImpl;
 import com.egakat.io.conciliaciones.components.decorators.SaldoInventarioMapEntidadDecorator;
 import com.egakat.io.conciliaciones.domain.SaldoInventario;
 import com.egakat.io.conciliaciones.heinz.components.decorators.SaldosInventarioCamposDecorator;

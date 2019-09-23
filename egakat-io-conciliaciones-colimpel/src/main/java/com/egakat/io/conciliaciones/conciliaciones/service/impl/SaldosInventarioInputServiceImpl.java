@@ -4,7 +4,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.egakat.integration.core.files.components.decorators.Decorator;
-import com.egakat.integration.core.files.service.impl.flat.ArchivoPlanoInputServiceImpl;
+import com.egakat.integration.core.files.service.impl.ArchivoPlanoInputServiceImpl;
 import com.egakat.io.conciliaciones.components.decorators.SaldoInventarioMapEntidadDecorator;
 import com.egakat.io.conciliaciones.conciliaciones.service.api.SaldosInventarioInputService;
 import com.egakat.io.conciliaciones.domain.SaldoInventario;

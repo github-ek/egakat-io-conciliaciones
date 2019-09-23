@@ -2,8 +2,8 @@ package com.egakat.io.conciliaciones.heinz.components.decorators;
 
 import java.util.stream.Collectors;
 
+import com.egakat.integration.commons.archivos.dto.EtlRequestDto;
 import com.egakat.integration.core.files.components.decorators.Decorator;
-import com.egakat.integration.files.dto.EtlRequestDto;
 import com.egakat.io.conciliaciones.domain.SaldoInventario;
 
 import lombok.val;

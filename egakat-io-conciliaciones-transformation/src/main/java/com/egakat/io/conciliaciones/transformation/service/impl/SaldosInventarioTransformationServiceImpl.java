@@ -12,8 +12,8 @@ import org.springframework.stereotype.Service;
 
 import com.egakat.econnect.conciliaciones.client.service.api.lookup.ConciliacionesLookUpService;
 import com.egakat.econnect.maestros.client.service.api.lookup.LookUpService;
+import com.egakat.integration.commons.archivos.dto.CampoDto;
 import com.egakat.integration.core.transformation.service.impl.TransformationServiceImpl;
-import com.egakat.integration.files.dto.CampoDto;
 import com.egakat.io.conciliaciones.domain.SaldoInventario;
 import com.egakat.io.conciliaciones.repository.SaldoInventarioRepository;
 import com.egakat.io.conciliaciones.transformation.service.api.SaldosInventarioTransformationService;
